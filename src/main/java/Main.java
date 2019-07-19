@@ -7,7 +7,21 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.println(getCurrency("a", "eur"));
+        Currency chfA = getCurrency("a", "chf");
+        Currency chfC = getCurrency("c", "chf");
+        System.out.println(chfA.code + " " + chfA.rates[0].mid + "; 100 PLN -> " + String.format("%.2f", 100 / chfC.rates[0].ask) + " CHF");
+
+        Currency eurA = getCurrency("a", "eur");
+        Currency eurC = getCurrency("c", "eur");
+        System.out.println(eurA.code + " " + eurA.rates[0].mid + "; 100 PLN -> " + String.format("%.2f", 100 / eurC.rates[0].ask) + " EUR");
+
+        Currency gbpA = getCurrency("a", "gbp");
+        Currency gbpC = getCurrency("c", "gbp");
+        System.out.println(gbpA.code + " " + gbpA.rates[0].mid + "; 100 PLN -> " + String.format("%.2f", 100 / gbpC.rates[0].ask) + " GBP");
+
+        Currency usdA = getCurrency("a", "usd");
+        Currency usdC = getCurrency("c", "usd");
+        System.out.println(usdA.code + " " + usdA.rates[0].mid + "; 100 PLN -> " + String.format("%.2f", 100 / usdC.rates[0].ask) + " USD");
     }
 
     public static Currency getCurrency(String table, String currency) throws IOException {
